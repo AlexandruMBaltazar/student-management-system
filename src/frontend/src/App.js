@@ -76,8 +76,8 @@ function App() {
         columns={columns}
         bordered
         title={() => 'Students'}
-        pagination={{ pageSize: 50 }}
-        scroll={{ y: 240 }}
+        pagination={{ pageSize: 20 }}
+        scroll={{ y: 500 }}
     />;
   }
 
