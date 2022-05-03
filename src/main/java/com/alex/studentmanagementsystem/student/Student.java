@@ -1,7 +1,6 @@
 package com.alex.studentmanagementsystem.student;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @ToString
