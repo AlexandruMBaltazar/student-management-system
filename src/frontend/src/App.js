@@ -4,7 +4,7 @@ import {
     Layout,
     Menu,
     Breadcrumb,
-    Table, Spin, Empty, Button
+    Table, Spin, Empty, Button, Badge, Space, Tag, Avatar
 } from 'antd';
 import {
     DesktopOutlined,
@@ -20,7 +20,25 @@ import './App.css';
 const {Header, Content, Footer, Sider} = Layout;
 const {SubMenu} = Menu;
 
+const TheAvatar = ({name}) => {
+    let trim = name.trim();
+    if (trim.length === 0) {
+        return <Avatar icon={<UserOutlined></UserOutlined>}/>
+    }
+    const split = trim.split(" ")
+    if (split.length === 1) {
+        return <Avatar>{name.charAt(0)}</Avatar>
+    }
+    return <Avatar>{`${name.charAt(0)}${name.charAt(name.length - 1)}`}</Avatar>
+}
+
 const columns = [
+    {
+        title: '',
+        dataIndex: 'avatar',
+        key: 'avatar',
+        render: (text, student) => <TheAvatar name={student.name}/>
+    },
     {
         title: 'Id',
         dataIndex: 'id',
@@ -73,15 +91,22 @@ function App() {
             return <Empty/>;
         }
         return <>
-            <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+            <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer}/>
             <Table
                 dataSource={students}
                 columns={columns}
                 bordered
                 title={() =>
-                    <Button onClick={() => setShowDrawer(!showDrawer)} type="primary" shape="round" icon={<PlusCircleOutlined/>} size="medium">
-                        Add New Student
-                    </Button>
+                    <>
+                        <Tag>Number of students</Tag>
+                        <Badge style={{backgroundColor: '#d9d9d9'}}
+                               count={students.length}/>
+                        <br/><br/>
+                        <Button onClick={() => setShowDrawer(!showDrawer)} type="primary" shape="round"
+                                icon={<PlusCircleOutlined/>} size="medium">
+                            Add New Student
+                        </Button>
+                    </>
                 }
                 pagination={{pageSize: 20}}
                 scroll={{y: 500}}
