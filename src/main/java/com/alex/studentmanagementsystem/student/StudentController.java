@@ -1,5 +1,6 @@
 package com.alex.studentmanagementsystem.student;
 
+import com.alex.studentmanagementsystem.exception.ApiRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
