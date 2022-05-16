@@ -44,9 +44,19 @@ const TheAvatar = ({name}) => {
 
 const removeStudent = (studentId, callback) => {
     deleteStudent(studentId).then(() => {
-        successNotification( "Student deleted", `Student with ${studentId} was deleted`);
+        successNotification("Student deleted", `Student with ${studentId} was deleted`);
         callback();
-    });
+    })
+        .catch(error => {
+            console.log(error)
+            error.response.json().then(res => {
+                console.log(res)
+                errorNotification(
+                    "There was an issue",
+                    res.message
+                )
+            })
+        });
 }
 
 const columns = fetchStudents => [
