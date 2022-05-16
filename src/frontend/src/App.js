@@ -144,7 +144,7 @@ function App() {
         if (students.length <= 0) {
             return (
                 <>
-                    <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer}/>
+                    <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer} fetchStudents={fetchStudents}/>
                     <Button onClick={() => setShowDrawer(!showDrawer)} type="primary" shape="round"
                             icon={<PlusCircleOutlined/>} size="medium">
                         Add New Student
