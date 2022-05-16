@@ -4,6 +4,7 @@ import com.alex.studentmanagementsystem.exception.ApiRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public void addStudent(@RequestBody Student student) {
+    public void addStudent(@Valid @RequestBody Student student) {
         studentService.addStudent(student);
     }
 
