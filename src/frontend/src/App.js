@@ -142,7 +142,16 @@ function App() {
             return <Spin indicator={antIcon}/>
         }
         if (students.length <= 0) {
-            return <Empty/>;
+            return (
+                <>
+                    <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer}/>
+                    <Button onClick={() => setShowDrawer(!showDrawer)} type="primary" shape="round"
+                            icon={<PlusCircleOutlined/>} size="medium">
+                        Add New Student
+                    </Button>
+                    <Empty/>
+                </>
+            );
         }
         return <>
             <StudentDrawerForm showDrawer={showDrawer} setShowDrawer={setShowDrawer}/>
