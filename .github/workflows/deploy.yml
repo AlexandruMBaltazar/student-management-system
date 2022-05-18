@@ -89,7 +89,7 @@ jobs:
         app-name: 'student-management-system'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f3d97acd523d40b3938c4599d8f75625 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_71355f2f0a604a7fb1c77bc47587a4e7 }}/alexandrubaltazar/student-management-system:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_71355f2f0a604a7fb1c77bc47587a4e7 }}/student-management-system:${{ github.sha }}'
     - uses: 8398a7/action-slack@v3
       with:
         status: ${{ job.status }}
