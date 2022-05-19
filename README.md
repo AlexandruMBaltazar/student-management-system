@@ -10,3 +10,4 @@ This app was created to develop my CI/CD skills by automating the building and d
 * Azure App Service connected to an Azure Database for PostgreSQL
 * Software Deployment Automation with Github Actions
 * Software Deployment Monitoring with Slack
+* Unit and Integration Testing
